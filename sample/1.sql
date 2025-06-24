@@ -164,3 +164,43 @@ FROM retro_songs
 GROUP BY artist
 WHERE MAX(duration) < 4.30;
 -- WHERE CLAUSE IS NOT USED WITH GROUP BY CLAUSE
+
+SELECT artist
+FROM retro_songs
+WHERE grade = "A"
+GROUP BY artist;
+
+SELECT artist
+FROM retro_songs
+WHERE grade = "A"
+GROUP BY artist
+HAVING MAX(duration) > 4.30;
+
+SELECT artist
+FROM retro_songs
+WHERE grade = "A"
+GROUP BY artist
+HAVING MAX(duration) > 4.30
+ORDER BY artist ASC;
+
+SELECT artist
+FROM retro_songs
+WHERE grade = "A"
+GROUP BY artist
+HAVING MAX(duration) > 4.30
+ORDER BY artist DESC;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE retro_songs
+SET grade = "c"
+WHERE grade = "B";
+
+UPDATE retro_songs
+SET grade = "A"
+WHERE duration BETWEEN 3 AND 4;
+
+DELETE FROM retro_songs
+WHERE grade = "C";
+
+SELECT * FROM retro_songs; 
