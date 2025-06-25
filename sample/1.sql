@@ -204,3 +204,15 @@ DELETE FROM retro_songs
 WHERE grade = "C";
 
 SELECT * FROM retro_songs; 
+
+CREATE TABLE my_playlist (
+    id INT PRIMARY KEY,
+    name VARCHAR(30)
+);
+
+CREATE TABLE album (
+    id INT PRIMARY KEY,
+    name VARCHAR(30),
+    my_playlist_id INT,
+    FOREIGN KEY (my_playlist_id) REFERENCES my_playlist(id)
+);
