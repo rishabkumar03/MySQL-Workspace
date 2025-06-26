@@ -210,9 +210,42 @@ CREATE TABLE my_playlist (
     name VARCHAR(30)
 );
 
+INSERT INTO my_playlist
+VALUES
+(101, "angrezzi"),
+(102, "gold_love"),
+(103, "mid_weed");
+
+SELECT * FROM my_playlist;
+
+UPDATE my_playlist
+SET id = 104
+WHERE id = 102;
+
+UPDATE my_playlist
+SET id = 111
+WHERE id = 101;
+
 CREATE TABLE album (
     id INT PRIMARY KEY,
     name VARCHAR(30),
     my_playlist_id INT,
     FOREIGN KEY (my_playlist_id) REFERENCES my_playlist(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
+
+DROP TABLE album;
+
+INSERT INTO album
+VALUES
+(101, "Stop The World I Wanna Get Off With You", 101),
+(102, "Tere Chehre Se Nazar Nahi", 102);
+
+SELECT * FROM album; 
+
+ALTER TABLE retro_songs
+ADD COLUMN release_year INT;
+
+ALTER TABLE retro_songs
+DROP COLUMN release_year;
