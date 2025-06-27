@@ -249,3 +249,28 @@ ADD COLUMN release_year INT;
 
 ALTER TABLE retro_songs
 DROP COLUMN release_year;
+
+ALTER TABLE retro_songs
+ADD COLUMN lyrics_avail INT NOT NULL DEFAULT 1;
+
+ALTER TABLE retro_songs
+MODIFY COLUMN lyrics_avail VARCHAR(3);
+
+INSERT INTO retro_songs
+(id, name, duration, lyrics_avail)
+VALUES
+(7, "Yeh Shaam Mastani", 4.36, "YES");
+
+ALTER TABLE retro_songs
+CHANGE lyrics_avail lyrics VARCHAR(4); 
+
+ALTER TABLE retro_songs
+DROP COLUMN lyrics;
+
+ALTER TABLE retro_songs
+RENAME to reso;
+
+ALTER TABLE reso
+RENAME TO retro_songs;
+
+TRUNCATE TABLE retro_songs;
