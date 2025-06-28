@@ -274,3 +274,33 @@ ALTER TABLE reso
 RENAME TO retro_songs;
 
 TRUNCATE TABLE retro_songs;
+
+SELECT AVG(duration)
+FROM retro_songs;
+
+SELECT full_name 
+FROM retro_songs
+WHERE duration > 4.1766;
+
+SELECT full_name, duration
+FROM retro_songs
+WHERE duration > (SELECT AVG(duration) FROM retro_songs);
+
+SELECT full_name, id 
+FROM retro_songs
+WHERE id IN (
+    SELECT id
+    FROM retro_songs
+    WHERE id % 2 = 0
+);
+
+SELECT MAX(duration)
+FROM (
+    SELECT *
+    FROM retro_songs
+    WHERE artist = "Kishore Kumar"
+) AS long_song_by_kishore_kumar;
+
+SELECT MAX(duration)
+FROM retro_songs
+WHERE artist = "Kishore Kumar";
