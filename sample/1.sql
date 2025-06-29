@@ -304,3 +304,15 @@ FROM (
 SELECT MAX(duration)
 FROM retro_songs
 WHERE artist = "Kishore Kumar";
+
+CREATE VIEW view1 AS
+SELECT id, full_name, duration FROM retro_songs;
+
+SELECT *
+FROM view1;
+
+SELECT *
+FROM view1
+WHERE duration > 4.20;
+
+DROP VIEW view1;
